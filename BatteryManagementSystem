@@ -12,11 +12,14 @@ bool batteryIsOk(float temperature, float soc, float chargeRate) {
   }
   return true;
 } 
-// Lydia - Issues with the above code
-// Lydia: batteryIsOk - is taking in 3 parameters and assessing for all 3 - so SRP (Single Responsibility Principle) is violated.
+// Lydia - Issues with the above code are listed below:
+// Lydia: batteryIsOk method is taking in 3 parameters and assessing for all 3 - so SRP (Single Responsibility Principle) is violated.
 // Lydia: The method is closed for extension and open for modification
 // Lydia: if any one parameter changes the entire method is impacted.
+// Lydia: Range Values being checked are hard coded.
+// Lydia: Solution to make the method adhere to SRP is as follows:
 // Lydia: Separate the check of temperature to a temperature method and return the result
 // Lydia: Separate the check of soc to soc method and return the result
 // Lydia: Separate the check of chargeRate to chargeRate method and return the result
 // Lydia: Collate the condition of the above 3 and return the final result
+// Lydia: Dont hard code values, declare and define outside  
